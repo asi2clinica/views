@@ -5,7 +5,7 @@
 <!-- BEGIN HEAD -->
 <head>
     <meta charset="utf-8" />
-    <title>Agendar Cita</title>
+    <title>Cambio de Horario</title>
     <meta content="width=device-width, initial-scale=1.0" name="viewport" />
     <meta content="" name="description" />
     <meta content="" name="author" />
@@ -440,7 +440,7 @@
 
  <!-- BEGIN PAGE TITLE & BREADCRUMB-->
                    <h3 class="page-title">
-                     Agendar cita
+                     Cambio de Horario
                    </h3>
                    <ul class="breadcrumb">
                        <li>
@@ -468,11 +468,25 @@
                                     <div class="col-md-4" id="border">
                                         <div class="modal-header">
 
-                           <form role="form" action="#" method="POST" name="frmAgendarCita" id="frmAgendarCita">
+                           <form role="form" action="#" method="POST" name="frmCambiohorario" id="frmCambiohorario">
 
                              <div class="control-group">
-                                   <label class="control-label">Codigo paciente</label>
-                                    <div class="controls">
+                                   <label class="control-label">Datos Paciente</label>
+                                   			 <div class="controls">
+                                        <label class="radio">
+                                            <input type="radio" name="optionsRadios1" value="option1" />
+                                            Dui
+                                        </label>
+                                        <label class="radio">
+                                            <input type="radio" name="optionsRadios1" value="option2" checked />
+                                            Apellidos
+                                        </label>
+                                        </div>
+                                </div>
+
+                                    </div>
+								<div class="control-group">
+                                      <div class="controls">
                                         <input type="text" placeholder="Ingrese codigo" class="input-xlarge" />
                                         <span class="help-inline">Campo obligatorio</span>
                                     </div>
@@ -486,7 +500,20 @@
                                             <span class="add-on"><i class="icon-calendar"></i></span>
                                         </div>
                                     </div>
-                             
+                                                                      <div class="control-group">
+                                   <label class="control-label">Fecha Reprogramada</label>
+                                   <div class="controls">
+                                        <div data-date-viewmode="years" data-date-format="dd-mm-yyyy" data-date="12-02-2012" id="dpYears" class="input-append date">
+                                            <input type="text" readonly="" value="12-02-2013" size="16" class="m-ctrl-medium">
+                                            <span class="add-on"><i class="icon-calendar"></i></span>
+                                        </div>
+                                    </div>
+                                 </div>
+
+
+
+
+
                        
                           </form>
 
@@ -498,7 +525,10 @@
                                 </div>
                                      </div>
                                        </div>
-                                            
+                                           <div class="form-actions">
+                                    <button type="submit" class="btn blue"><i class="icon-ok"></i> Guardar</button>
+                                    <button type="button" class="btn"><i class=" icon-remove"></i> Cancelar</button>
+                                </div> 
                     <!-- END FONT AWESOME ICONS PORTLET-->
                  </div>
 
