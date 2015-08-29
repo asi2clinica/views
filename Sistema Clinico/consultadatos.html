@@ -5,7 +5,7 @@
 <!-- BEGIN HEAD -->
 <head>
     <meta charset="utf-8" />
-    <title>Registro de Paciente</title>
+    <title>Consulta datos</title>
     <meta content="width=device-width, initial-scale=1.0" name="viewport" />
     <meta content="" name="description" />
     <meta content="" name="author" />
@@ -16,8 +16,10 @@
     <link href="css/style.css" rel="stylesheet" />
     <link href="css/style-responsive.css" rel="stylesheet" />
     <link href="css/style-default.css" rel="stylesheet" id="style_color" />
+
     <link href="assets/fancybox/source/jquery.fancybox.css" rel="stylesheet" />
     <link rel="stylesheet" type="text/css" href="assets/uniform/css/uniform.default.css" />
+
     <link rel="stylesheet" type="text/css" href="assets/chosen-bootstrap/chosen/chosen.css" />
     <link rel="stylesheet" type="text/css" href="assets/jquery-tags-input/jquery.tagsinput.css" />
     <link rel="stylesheet" type="text/css" href="assets/clockface/css/clockface.css" />
@@ -465,11 +467,11 @@
           </div>
       </div>
       <!-- END SIDEBAR -->
-      <!-- BEGIN PAGE -->
+      <!-- BEGIN PAGE -->  
       <div id="main-content">
          <!-- BEGIN PAGE CONTAINER-->
          <div class="container-fluid">
-            <!-- BEGIN PAGE HEADER-->
+            <!-- BEGIN PAGE HEADER-->   
             <div class="row-fluid">
                <div class="span12">
                    <!-- BEGIN THEME CUSTOMIZER-->
@@ -489,26 +491,23 @@
                    <!-- END THEME CUSTOMIZER-->
                   <!-- BEGIN PAGE TITLE & BREADCRUMB-->
                    <h3 class="page-title">
-                    Reporte Transaccional
+Consulta Datos
                    </h3>
                    <ul class="breadcrumb">
                        <li>
-                           <a href="#">Inicio</a>
+                           <a href="#">Expediente Paciente</a>
                            <span class="divider">/</span>
                        </li>
                        <li>
-                           <a href="#">Reportes</a>
+                           <a href="#">Consulta de datos</a>
                            <span class="divider">/</span>
                        </li>
                        <li class="active">
-                           Reportes Transaccional 
+                           
                        </li>
                        <li class="pull-right search-wrap">
                            <form action="http://thevectorlab.net/metrolab/search_result.html" class="hidden-phone">
-                               <div class="input-append search-input-area">
-                                   <input class="" id="appendedInputButton" type="text">
-                                   <button class="btn" type="button"><i class="icon-search"></i> </button>
-                               </div>
+                              
                            </form>
                        </li>
                    </ul>
@@ -516,84 +515,210 @@
                </div>
             </div>
             <!-- END PAGE HEADER-->
-            <!-- BEGIN PAGE CONTENT-->            
-			<div class="row-fluid">
-                    <div class="span12">
-                        <!-- BEGIN BASIC PORTLET-->
-                        <div class="widget green">
-                            <div class="widget-title">
-                                <h4><i class="icon-reorder"></i> Reporte Transaccional </h4>
-                            <span class="tools">
-                                <a class="icon-chevron-down" href="javascript:;"></a>
-                                <a class="icon-remove" href="javascript:;"></a>
-                            </span>
-                            </div>
-                            <div class="widget-body">
-								<div role="grid" class="dataTables_wrapper form-inline" id="sample_1_wrapper"><div class="row-fluid"><div class="span6"><div id="sample_1_length" class="dataTables_length"><label><select name="sample_1_length" size="1" aria-controls="sample_1" class="input-mini"><option value="10" selected="selected">10</option><option value="25">25</option><option value="50">50</option><option value="100">100</option></select> registros por página</label></div>
-									<div class="btn-group pull-right" style="float:left">
-											 <button data-toggle="dropdown" class="btn dropdown-toggle">Instrumentos <i class="icon-angle-down"></i>
-											 </button>
-											 <ul class="dropdown-menu pull-right"><li><a href="#">Imprimir</a></li><li><a href="#">Guardar como PDF</a></li><li><a href="#">Exportar a Excel</a></li></ul>
-									</div>
-								</div><div class="span6"><div class="dataTables_filter" id="sample_1_filter" ><label>Buscar: <input type="text" aria-controls="sample_1" class="input-medium"></label></div></div></div><table id="sample_1" class="table table-striped table-bordered dataTable" aria-describedby="sample_1_info">
+            <!-- BEGIN PAGE CONTENT-->
 
-                                <table class="table table-striped table-bordered table-advance table-hover">
-                                    <thead>
-									 <tr>
-									    <th></i>Usuario</th>
-                                        <th></i>Rol del Usuario</th>
-                                        <th></i>Fecha</th>
-                                        <th></i>Iniciones</th>
-                                        <th></i></th>
-										<th></i> </th>
-										<th></i> </th>
-										
-                                        <th></th>
-									</thead>
-									<tbody>
-                                    <tr>
-                                        <td><a href="#">diana</a></td>
-                                        <td class="hidden-phone">Administrador</td>
-                                        <td>12/08/2015</td>
-                                        <td>5</td>
-										<td></td>
-										<td></td>
-										<td></td>
-                                       </td> 
-									    <tr>
-                                        <td><a href="#">carolina</a></td>
-                                        <td class="hidden-phone">Secretaria</td>
-                                        <td>13/08/2015</td>
-                                        <td>2</td>
-										<td></td>
-										<td></td>
-										<td></td>
-                                       </td> 
-                                    </tr>
-
-                                    </tbody>
-                                </table>
-								<div class="row-fluid"><div class="span6"><div class="dataTables_info" id="sample_1_info">Mostrando 1 a 10 de 25 entradas</div></div><div class="span6"><div class="dataTables_paginate paging_bootstrap pagination"><ul><li class="prev disabled"><a href="#">← Anterior</a></li><li class="active"><a href="#">1</a></li><li><a href="#">2</a></li><li><a href="#">3</a></li><li class="next"><a href="#">Siguiente → </a></li></ul></div></div></div>
+            <div id="page">
+                <div class="row-fluid">
+                    <div class="span15">
+									   
+									   <!-- BEGIN BLOCKQUOTES PORTLET-->
+                <div class="widget gray">
+                    <div class="widget-title">
+                       <div class="control-group">
+                                <label class="control-label">Ingrese la consulta</label>
+                         <div class="controls">
+                                    <p>&nbsp;                                    </p>
+                                  <p> Ingrese el numero de DUI (Persona Encargada o Titular)</p>
+           <div class="input-append search-input-area">
+                                   <input type="text" class="" id="appendedInputButton" value="Ej. 00288196-5">
+                                   <button class="btn" type="button"><i class="icon-search"></i> </button>
+                           </div>                          
+           <p>Pacientes asociados :</p>
+                               <p>
+                                 <select class="span6 " data-placeholder="Choose a Category" tabindex="1">
+                                   <option value="">seleccione un paciente</option>
+                                   <option value="Category 1">paciente numero 1</option>
+                                   <option value="Category 2">paciente numero 2</option>
+                                 </select>
+                               </p>
+                           <p>Informacion general del paciente</p>
+                               <p><span class="input-append search-input-area">
+                                 <input type="text" class="" id="appendedInputButton2" value="Nombre">
+                               </span><span class="input-append search-input-area">
+                               <input type="text" class="" id="appendedInputButton3" value="Apellidos">
+                               </span>
+                               <select name="select2" class="span3 " tabindex="1" data-placeholder="Choose a Category">
+                                 <option value="">Estado de paciente</option>
+                                 <option value="Category 1">Activo</option>
+                                 <option value="Category 2">Inactivo</option>
+                               </select>
+                               <span class="input-append search-input-area">
+                               <input type="text" class="" id="appendedInputButton5" value="Tipo Sanguineo">
+                               </span></p>
+                           <p><span class="input-append search-input-area">
+                                 <input type="text" class="" id="appendedInputButton4" value="Persona Responsable">
+                               </span><span class="input-append search-input-area">
+                               <input type="text" class="" id="appendedInputButton6" value="Medico de cabecera">
+                               </span><span class="input-append search-input-area">
+                               <input type="text" class="" id="appendedInputButton7" value="Fecha ultima cita">
+                               </span></p>
+                           <p>Informacion clinica del paciente:</p>
+                           <p>
+                             <select name="select" class="span6 " tabindex="1" data-placeholder="Choose a Category">
+                               <option value="">Seleccione el nombre del diente a consultar</option>
+                               <option value="Category 1">Incisivo central</option>
+                               <option value="Category 2">Incisivo lateral</option>
+                               <option value="Category 3">Primer premolar</option>
+                               <option value="Category 4">Segundo premolar</option>
+                               <option value="Category 5">Primer molar</option>
+                               <option value="Category 6">Segundo molar</option>
+                               <option value="Category 7">Tercer molar</option>
+                             </select>
+                             <select name="select3" class="span6 " tabindex="1" data-placeholder="Choose a Category">
+                               <option value="">seleccione un area bucal</option>
+                               <option value="Category 1">Superior Izquierdo</option>
+                               <option value="Category 2">Superior Derecho</option>
+                               <option value="Category 3">Inferior Izquierdo</option>
+                               <option value="Category 4">Inferior Derecho</option>
+                             </select>
+                           </p>
+                         </div>
+                                <div class="control-group">
+                                  <div class="controls">observaciones
+                                    <p>
+                                      <textarea rows="4" class="span6 "></textarea>
+                                    </p>
+                                    <div class="form-actions">
+                                    </div>
+                                    <p>Busqueda por Trabajos realizados :</p>
+                                    <div class="row-fluid">
+                                      <div class="span6">
+                                        <div class="dataTables_filter" id="editable-sample_filter">
+                                          <label>Buscar Trabajo realizado:
+                                            <input type="text" aria-controls="editable-sample" class="medium">
+                                          </label>
+                                        </div>
+                                      </div>
+                                    </div>
+                                    <table id="editable-sample" class="table table-striped table-hover table-bordered dataTable" aria-describedby="editable-sample_info">
+                                      <thead>
+                                        <tr role="row">
+                                          <th class="sorting_disabled" role="columnheader" rowspan="1" colspan="1" style="width: 192px;" aria-label="Username">No. Trabajo Realizado</th>
+                                          <th class="sorting" role="columnheader" tabindex="0" aria-controls="editable-sample" rowspan="1" colspan="1" style="width: 287px;" aria-label="Full Name: activate to sort column ascending">Titulo de Trabajo realizado</th>
+                                          <th class="sorting" role="columnheader" tabindex="0" aria-controls="editable-sample" rowspan="1" colspan="1" style="width: 127px;" aria-label="Points: activate to sort column ascending">Fecha</th>
+                                          <th class="sorting" role="columnheader" tabindex="0" aria-controls="editable-sample" rowspan="1" colspan="1" style="width: 184px;" aria-label="Notes: activate to sort column ascending"><span class="sorting" style="width: 127px;">Medico</span></th>
+                                          <th class="sorting" role="columnheader" tabindex="0" aria-controls="editable-sample" rowspan="1" colspan="1" style="width: 89px;" aria-label="Edit: activate to sort column ascending">Sucursal</th>
+                                          <th class="sorting" role="columnheader" tabindex="0" aria-controls="editable-sample" rowspan="1" colspan="1" style="width: 132px;" aria-label="Delete: activate to sort column ascending">Cita</th>
+                                        </tr>
+                                      </thead>
+                                      <tbody role="alert" aria-live="polite" aria-relevant="all">
+                                        <tr class="odd">
+                                          <td class="  sorting_1">&nbsp;</td>
+                                          <td class=" ">&nbsp;</td>
+                                          <td class=" ">&nbsp;</td>
+                                          <td class="center ">&nbsp;</td>
+                                          <td class=" ">&nbsp;</td>
+                                          <td class=" ">&nbsp;</td>
+                                        </tr>
+                                        <tr class="even">
+                                          <td class="  sorting_1">&nbsp;</td>
+                                          <td class=" ">&nbsp;</td>
+                                          <td class=" ">&nbsp;</td>
+                                          <td class="center ">&nbsp;</td>
+                                          <td class=" ">&nbsp;</td>
+                                          <td class=" ">&nbsp;</td>
+                                        </tr>
+                                        <tr class="odd">
+                                          <td class="  sorting_1">&nbsp;</td>
+                                          <td class=" ">&nbsp;</td>
+                                          <td class=" ">&nbsp;</td>
+                                          <td class="center ">&nbsp;</td>
+                                          <td class=" ">&nbsp;</td>
+                                          <td class=" ">&nbsp;</td>
+                                        </tr>
+                                        <tr class="even">
+                                          <td class="  sorting_1">&nbsp;</td>
+                                          <td class=" ">&nbsp;</td>
+                                          <td class=" ">&nbsp;</td>
+                                          <td class="center ">&nbsp;</td>
+                                          <td class=" ">&nbsp;</td>
+                                          <td class=" ">&nbsp;</td>
+                                        </tr>
+                                        <tr class="odd">
+                                          <td class="  sorting_1">&nbsp;</td>
+                                          <td class=" ">&nbsp;</td>
+                                          <td class=" ">&nbsp;</td>
+                                          <td class="center ">&nbsp;</td>
+                                          <td class=" ">&nbsp;</td>
+                                          <td class=" ">&nbsp;</td>
+                                        </tr>
+                                      </tbody>
+                                    </table>
+                                    <div class="row-fluid">
+                                      <div class="span6">
+                                        <div class="dataTables_info" id="editable-sample_info"></div>
+                                      </div>
+                                    </div>
+                                    <p>&nbsp;</p>
+                                  </div>
+                         </div>
+                         <div class="form-actions">
+                           <p>&nbsp;</p>
+                           <p>&nbsp;</p>
+                         </div>
+ 
+<p>&nbsp;</p>
+<p>&nbsp;</p>
+<p>&nbsp;</p>
+<p>&nbsp;</p>
+<p>&nbsp;</p>
+<p>&nbsp;</p>
+<p>&nbsp;</p>
+<p>&nbsp;</p>
+<p>&nbsp;</p>
+<p>&nbsp;</p>
+<p>&nbsp;</p>
+<p>&nbsp;</p>
+<p>&nbsp;</p>
+                      </div>
                             </div>
-                        </div>
-                        <!-- END BASIC PORTLET-->
+                <!-- END BLOCKQUOTES PORTLET-->
+				
+                                        
+                                    </div>
+                       </div>
+                       
                     </div>
+					
+                    <!-- END FONT AWESOME ICONS PORTLET-->
+                  
+				 </div>
                 </div>
-				<!-- END EXAMPLE TABLE widget-->
-                 </div>
-             </div>
+            <!--END:BODY-->
+            </div>
 
-            <!-- END PAGE CONTENT-->
+            <!-- END PAGE CONTENT-->         
          </div>
          <!-- END PAGE CONTAINER-->
+		 <br>
+		 <br>
+		 <br>
+		 <br>
+		 <div class="form-actions">
+          
+                                </div>
+						</br>
+								</br>
+								</br>
+								</br>
       </div>
-      <!-- END PAGE -->
+      <!-- END PAGE -->  
    </div>
    <!-- END CONTAINER -->
 
    <!-- BEGIN FOOTER -->
    <div id="footer">
-       2015 &copy; Multisonrisas Clinica Dental.
+      
    </div>
    <!-- END FOOTER -->
 
@@ -602,27 +727,21 @@
    <script src="js/jquery-1.8.3.min.js"></script>
    <script src="js/jquery.nicescroll.js" type="text/javascript"></script>
    <script src="assets/bootstrap/js/bootstrap.min.js"></script>
-   <script src="js/jquery.blockui.js"></script>
+
    <!-- ie8 fixes -->
    <!--[if lt IE 9]>
    <script src="js/excanvas.js"></script>
    <script src="js/respond.js"></script>
    <![endif]-->
-   <script type="text/javascript" src="assets/chosen-bootstrap/chosen/chosen.jquery.min.js"></script>
-   <script type="text/javascript" src="assets/uniform/jquery.uniform.min.js"></script>
 
 
    <!--common script for all pages-->
    <script src="js/common-scripts.js"></script>
 
 
-   <!-- END JAVASCRIPTS -->
-   <script>
-       $(function () {
-           $(" input[type=radio], input[type=checkbox]").uniform();
-       });
-   </script>
 
+   <!-- END JAVASCRIPTS -->   
 </body>
 <!-- END BODY -->
+
 </html>
