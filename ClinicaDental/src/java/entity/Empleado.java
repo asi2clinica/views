@@ -7,6 +7,7 @@ package entity;
 
 import java.io.Serializable;
 import java.math.BigDecimal;
+import java.math.BigInteger;
 import java.util.Collection;
 import javax.persistence.Basic;
 import javax.persistence.CascadeType;
@@ -14,7 +15,8 @@ import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
-import javax.persistence.ManyToOne;
+import javax.persistence.JoinTable;
+import javax.persistence.ManyToMany;
 import javax.persistence.NamedQueries;
 import javax.persistence.NamedQuery;
 import javax.persistence.OneToMany;
@@ -30,20 +32,22 @@ import javax.xml.bind.annotation.XmlTransient;
  * @author Usuario1
  */
 @Entity
-@Table(name = "PACIENTE")
+@Table(name = "EMPLEADO")
 @XmlRootElement
 @NamedQueries({
-    @NamedQuery(name = "Paciente.findAll", query = "SELECT p FROM Paciente p"),
-    @NamedQuery(name = "Paciente.findByPersona", query = "SELECT p FROM Paciente p WHERE p.persona = :persona"),
-    @NamedQuery(name = "Paciente.findByFoto", query = "SELECT p FROM Paciente p WHERE p.foto = :foto"),
-    @NamedQuery(name = "Paciente.findByRefiere", query = "SELECT p FROM Paciente p WHERE p.refiere = :refiere"),
-    @NamedQuery(name = "Paciente.findByActivo", query = "SELECT p FROM Paciente p WHERE p.activo = :activo"),
-    @NamedQuery(name = "Paciente.findByEncargado", query = "SELECT p FROM Paciente p WHERE p.encargado = :encargado")})
-public class Paciente implements Serializable {
-    @OneToMany(cascade = CascadeType.ALL, mappedBy = "pacientePersona")
-    private Collection<Odontograma> odontogramaCollection;
-    @OneToMany(cascade = CascadeType.ALL, mappedBy = "pacientePersona")
-    private Collection<Cita> citaCollection;
+    @NamedQuery(name = "Empleado.findAll", query = "SELECT e FROM Empleado e"),
+    @NamedQuery(name = "Empleado.findByPersona", query = "SELECT e FROM Empleado e WHERE e.persona = :persona"),
+    @NamedQuery(name = "Empleado.findByCodigo", query = "SELECT e FROM Empleado e WHERE e.codigo = :codigo"),
+    @NamedQuery(name = "Empleado.findBySalario", query = "SELECT e FROM Empleado e WHERE e.salario = :salario"),
+    @NamedQuery(name = "Empleado.findByActivo", query = "SELECT e FROM Empleado e WHERE e.activo = :activo")})
+public class Empleado implements Serializable {
+    @JoinTable(name = "ROL_USUARIO", joinColumns = {
+        @JoinColumn(name = "EMPLEADO_PERSONA", referencedColumnName = "PERSONA")}, inverseJoinColumns = {
+        @JoinColumn(name = "ROL_ID", referencedColumnName = "ID")})
+    @ManyToMany
+    private Collection<Rol> rolCollection;
+    @OneToMany(cascade = CascadeType.ALL, mappedBy = "encargado")
+    private Collection<Sucursal> sucursalCollection;
     private static final long serialVersionUID = 1L;
     // @Max(value=?)  @Min(value=?)//if you know range of your decimal fields consider using these annotations to enforce field validation
     @Id
@@ -51,36 +55,34 @@ public class Paciente implements Serializable {
     @NotNull
     @Column(name = "PERSONA")
     private BigDecimal persona;
-    @Size(max = 255)
-    @Column(name = "FOTO")
-    private String foto;
-    @Size(max = 200)
-    @Column(name = "REFIERE")
-    private String refiere;
     @Basic(optional = false)
     @NotNull
+    @Size(min = 1, max = 10)
+    @Column(name = "CODIGO")
+    private String codigo;
+    @Basic(optional = false)
+    @NotNull
+    @Column(name = "SALARIO")
+    private BigInteger salario;
     @Column(name = "ACTIVO")
     private Character activo;
-    @Size(max = 180)
-    @Column(name = "ENCARGADO")
-    private String encargado;
     @JoinColumn(name = "PERSONA", referencedColumnName = "ID", insertable = false, updatable = false)
     @OneToOne(optional = false)
     private Persona persona1;
-    @JoinColumn(name = "TIPO_PACIENTE", referencedColumnName = "ID")
-    @ManyToOne(optional = false)
-    private TipoPaciente tipoPaciente;
+    @OneToOne(cascade = CascadeType.ALL, mappedBy = "empleado1")
+    private Doctor doctor;
 
-    public Paciente() {
+    public Empleado() {
     }
 
-    public Paciente(BigDecimal persona) {
+    public Empleado(BigDecimal persona) {
         this.persona = persona;
     }
 
-    public Paciente(BigDecimal persona, Character activo) {
+    public Empleado(BigDecimal persona, String codigo, BigInteger salario) {
         this.persona = persona;
-        this.activo = activo;
+        this.codigo = codigo;
+        this.salario = salario;
     }
 
     public BigDecimal getPersona() {
@@ -91,20 +93,20 @@ public class Paciente implements Serializable {
         this.persona = persona;
     }
 
-    public String getFoto() {
-        return foto;
+    public String getCodigo() {
+        return codigo;
     }
 
-    public void setFoto(String foto) {
-        this.foto = foto;
+    public void setCodigo(String codigo) {
+        this.codigo = codigo;
     }
 
-    public String getRefiere() {
-        return refiere;
+    public BigInteger getSalario() {
+        return salario;
     }
 
-    public void setRefiere(String refiere) {
-        this.refiere = refiere;
+    public void setSalario(BigInteger salario) {
+        this.salario = salario;
     }
 
     public Character getActivo() {
@@ -115,14 +117,6 @@ public class Paciente implements Serializable {
         this.activo = activo;
     }
 
-    public String getEncargado() {
-        return encargado;
-    }
-
-    public void setEncargado(String encargado) {
-        this.encargado = encargado;
-    }
-
     public Persona getPersona1() {
         return persona1;
     }
@@ -131,12 +125,12 @@ public class Paciente implements Serializable {
         this.persona1 = persona1;
     }
 
-    public TipoPaciente getTipoPaciente() {
-        return tipoPaciente;
+    public Doctor getDoctor() {
+        return doctor;
     }
 
-    public void setTipoPaciente(TipoPaciente tipoPaciente) {
-        this.tipoPaciente = tipoPaciente;
+    public void setDoctor(Doctor doctor) {
+        this.doctor = doctor;
     }
 
     @Override
@@ -149,10 +143,10 @@ public class Paciente implements Serializable {
     @Override
     public boolean equals(Object object) {
         // TODO: Warning - this method won't work in the case the id fields are not set
-        if (!(object instanceof Paciente)) {
+        if (!(object instanceof Empleado)) {
             return false;
         }
-        Paciente other = (Paciente) object;
+        Empleado other = (Empleado) object;
         if ((this.persona == null && other.persona != null) || (this.persona != null && !this.persona.equals(other.persona))) {
             return false;
         }
@@ -161,25 +155,25 @@ public class Paciente implements Serializable {
 
     @Override
     public String toString() {
-        return "entity.Paciente[ persona=" + persona + " ]";
+        return "entity.Empleado[ persona=" + persona + " ]";
     }
 
     @XmlTransient
-    public Collection<Cita> getCitaCollection() {
-        return citaCollection;
+    public Collection<Sucursal> getSucursalCollection() {
+        return sucursalCollection;
     }
 
-    public void setCitaCollection(Collection<Cita> citaCollection) {
-        this.citaCollection = citaCollection;
+    public void setSucursalCollection(Collection<Sucursal> sucursalCollection) {
+        this.sucursalCollection = sucursalCollection;
     }
 
     @XmlTransient
-    public Collection<Odontograma> getOdontogramaCollection() {
-        return odontogramaCollection;
+    public Collection<Rol> getRolCollection() {
+        return rolCollection;
     }
 
-    public void setOdontogramaCollection(Collection<Odontograma> odontogramaCollection) {
-        this.odontogramaCollection = odontogramaCollection;
+    public void setRolCollection(Collection<Rol> rolCollection) {
+        this.rolCollection = rolCollection;
     }
     
 }

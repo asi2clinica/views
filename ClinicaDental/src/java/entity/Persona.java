@@ -7,6 +7,7 @@ package entity;
 
 import java.io.Serializable;
 import java.math.BigDecimal;
+import java.util.Collection;
 import java.util.Date;
 import javax.persistence.Basic;
 import javax.persistence.CascadeType;
@@ -17,6 +18,7 @@ import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.NamedQueries;
 import javax.persistence.NamedQuery;
+import javax.persistence.OneToMany;
 import javax.persistence.OneToOne;
 import javax.persistence.Table;
 import javax.persistence.Temporal;
@@ -24,6 +26,7 @@ import javax.persistence.TemporalType;
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
 import javax.xml.bind.annotation.XmlRootElement;
+import javax.xml.bind.annotation.XmlTransient;
 
 /**
  *
@@ -43,6 +46,12 @@ import javax.xml.bind.annotation.XmlRootElement;
     @NamedQuery(name = "Persona.findByFechaRegistro", query = "SELECT p FROM Persona p WHERE p.fechaRegistro = :fechaRegistro"),
     @NamedQuery(name = "Persona.findByEmail", query = "SELECT p FROM Persona p WHERE p.email = :email")})
 public class Persona implements Serializable {
+    @OneToMany(cascade = CascadeType.ALL, mappedBy = "persona1")
+    private Collection<DocumentoPersona> documentoPersonaCollection;
+    @OneToMany(cascade = CascadeType.ALL, mappedBy = "persona")
+    private Collection<Telefono> telefonoCollection;
+    @OneToOne(cascade = CascadeType.ALL, mappedBy = "persona1")
+    private Empleado empleado;
     private static final long serialVersionUID = 1L;
     // @Max(value=?)  @Min(value=?)//if you know range of your decimal fields consider using these annotations to enforce field validation
     @Id
@@ -206,6 +215,32 @@ public class Persona implements Serializable {
     @Override
     public String toString() {
         return "entity.Persona[ id=" + id + " ]";
+    }
+
+    public Empleado getEmpleado() {
+        return empleado;
+    }
+
+    public void setEmpleado(Empleado empleado) {
+        this.empleado = empleado;
+    }
+
+    @XmlTransient
+    public Collection<DocumentoPersona> getDocumentoPersonaCollection() {
+        return documentoPersonaCollection;
+    }
+
+    public void setDocumentoPersonaCollection(Collection<DocumentoPersona> documentoPersonaCollection) {
+        this.documentoPersonaCollection = documentoPersonaCollection;
+    }
+
+    @XmlTransient
+    public Collection<Telefono> getTelefonoCollection() {
+        return telefonoCollection;
+    }
+
+    public void setTelefonoCollection(Collection<Telefono> telefonoCollection) {
+        this.telefonoCollection = telefonoCollection;
     }
     
 }
