@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<web-app version="3.1" xmlns="http://xmlns.jcp.org/xml/ns/javaee" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/javaee http://xmlns.jcp.org/xml/ns/javaee/web-app_3_1.xsd">
+    <servlet>
+        <servlet-name>RoleUserTypeCtrl</servlet-name>
+        <servlet-class>controller.RoleUserTypeCtrl</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>RoleUserCtrl</servlet-name>
+        <servlet-class>controller.RoleUserCtrl</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>GestionUserCtrl</servlet-name>
+        <servlet-class>controller.GestionUserCtrl</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>AsignacionPermisoCtrl</servlet-name>
+        <servlet-class>controller.AsignacionPermisoCtrl</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>RoleUserTypeCtrl</servlet-name>
+        <url-pattern>/RoleUserTypeCtrl</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>RoleUserCtrl</servlet-name>
+        <url-pattern>/RoleUserCtrl</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>GestionUserCtrl</servlet-name>
+        <url-pattern>/GestionUserCtrl</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>AsignacionPermisoCtrl</servlet-name>
+        <url-pattern>/AsignacionPermisoCtrl</url-pattern>
+    </servlet-mapping>
+    <session-config>
+        <session-timeout>
+            30
+        </session-timeout>
+    </session-config>
+</web-app>
